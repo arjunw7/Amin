@@ -5,24 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var mysql = require('mysql');
-
-var connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "13bcb0062",
-    database: "amin"
-});
-
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-});
-
 
 app.use(logger('dev'));
 app.use(session({
-    secret: 'react-boilerplate',
+    secret: 'amin',
     saveUninitialized: true,
     resave: true
 }));
