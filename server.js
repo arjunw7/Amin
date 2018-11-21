@@ -5,6 +5,20 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "13bcb0062",
+    database: "amin"
+});
+
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
+
 
 app.use(logger('dev'));
 app.use(session({
@@ -12,6 +26,7 @@ app.use(session({
     saveUninitialized: true,
     resave: true
 }));
+
 
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
@@ -25,6 +40,6 @@ app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/templates/index.html'))
 })
 
-app.listen('8084', function() {
-    console.log("App running on post 8084")
+app.listen('5000', function() {
+    console.log("App running on post 5000")
 })
