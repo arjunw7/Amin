@@ -26,6 +26,6 @@ app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/templates/index.html'))
 })
 
-app.listen('5004', function() {
-    console.log("App running on post 5004")
+app.listen('8089', function() {
+    console.log("App running on post 8089")
 })
